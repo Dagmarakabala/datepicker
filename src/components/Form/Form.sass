@@ -1,0 +1,93 @@
+.form
+  display: block
+  max-width: 500px
+  margin: 50px auto auto auto
+  padding: 50px 
+  text-align: center
+  border: 1px solid $chambry
+  border-radius: 20px
+
+  &__title 
+    font-size: 50px
+    color: $chambry
+    font-weight: bold
+
+  &__form
+    margin-top: 30px
+
+  &__name 
+    font-size: 24px
+    text-align: left
+
+  &__item
+    position: relative
+
+  &__input 
+    width: 100%
+    margin: 10px 0px
+    height: 30px
+    margin-bottom: 50px
+    border: 0
+    border-bottom: 1px solid $chambry
+    font-size: 24px
+
+  &__button 
+    padding: 10px 30px
+    background-color: $chambry
+    border: 0px
+    border-radius: 5px
+    font-size: 20px
+    color: $white
+
+.qs
+  &-datepicker-container
+    width: 80%
+    max-width: 400px
+    border: 1px solid $chambry
+    border-radius: 10px
+
+  &-controls
+    padding: 5px 2px
+    background-color: $white
+    border-bottom: 1px solid $chambry
+    font-size: 14px
+    color: $chambry
+    
+  &-month-year
+    border: 0
+    &:hover
+      border: 0
+
+  &-squares 
+    padding: 10px 0px
+    justify-content: space-between
+    row-gap: 4px
+
+  &-day 
+    padding: 10px 
+    color: $chambry
+    font-size: 12px
+
+  &-num
+    font-size: 12px
+    padding: 15px 5px
+    margin: auto
+
+  &-square 
+    width: calc(100% / 7 - 4px)
+
+    &:not(.qs-empty):not(.qs-disabled):not(.qs-day):not(.qs-active)
+      &:hover
+        background-color: lighten($chambry, 50%)
+
+  &-active, &-range-start, &-range-end
+    background-color: lighten($chambry, 30%)
+
+  &-range-middle 
+    background-color: lighten($chambry, 50%)
+
+  &-overlay
+    background: $white
+    color: $black
+    font-size: 14px
+
