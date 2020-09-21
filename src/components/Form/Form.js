@@ -11,24 +11,18 @@ const Form = {
   init(args) {
     this.settings = $.extend(true, this.settings, args);
     if ($(this.settings.target).length > 0) {
-      this.catchDOM(this.settings, this.afterInit.bind(this));
+      this.catchDOM(this.settings);
       this.createDatePicker();
     }
   },
-  afterInit() {
-    this.bindEvents();
-  },
-  catchDOM(settings, callback) {
+ 
+  catchDOM(settings,) {
     const target = $(settings.target);
     this.$target = {
       root: target,
       form: target.find(settings.form),
       input: target.find(settings.input),
     };
-    callback();
-  },
-  bindEvents() {
-    $(this.$target.input).on("click", this.displayCalendar.bind(this));
   },
   checkForm(event) {
     event.preventDefault();
@@ -46,7 +40,8 @@ const Form = {
       formatter: (input, date, instance) => {
         const value = date.toLocaleDateString()
         input.value = value
-      }
+      },
+      disableYearOverlayButton: false,
     });
     const calenderEnd = datepicker(`#to`, {
       id: 1,
@@ -61,17 +56,6 @@ const Form = {
         input.value = value
       }
     });
-  },
-  displayCalendar(event) {
-    event.preventDefault();
-    const input = $(event.currentTarget);
-    const calender = input[0].nextElementSibling;
-    if( $(calender).hasClass('qs-hidden')) {
-      $(calender).removeClass('qs-hidden');
-    }
-    else {
-      $(calender).addClass('qs-hidden');
-    }
   },
 };
 export default Form;
