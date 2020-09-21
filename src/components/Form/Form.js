@@ -15,7 +15,6 @@ const Form = {
       this.createDatePicker();
     }
   },
- 
   catchDOM(settings,) {
     const target = $(settings.target);
     this.$target = {
